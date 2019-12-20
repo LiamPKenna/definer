@@ -4,9 +4,9 @@ require('word')
 
 describe('#Definition') do
 
-  # before(:each) do
-  #
-  # end
+  before(:each) do
+    Definition.clear()
+  end
 
   describe('#save') do
     it('saves a definition') do

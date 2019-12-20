@@ -11,5 +11,24 @@ class Definition
     @id = (attributes.fetch(:id)) ? attributes.fetch(:id) : @@total_rows += 1
   end
 
-  
+  def save
+    @@definitions[self.id] = Definition.new({
+      :text=>self.text,
+      :word_id=>self.word_id,
+      :id=>self.id
+    })
+  end
+
+  def self.all
+    @@definitions.values()
+  end
+
+  def self.clear
+    @@definitions = {}
+    @@total_rows = 0
+  end
+
+  def self.find(id)
+    @@definitions[id.to_i]
+  end
 end
