@@ -1,13 +1,12 @@
 require('./lib/definition')
 
 class Word
-  attr_reader :word, :id, :definitions
+  attr_reader :word, :id
   @@words = {}
   @@total_rows = 0
 
   def initialize(attributes)
     @word = attributes.fetch(:word)
-    @definition = attributes.fetch(:definitions)
     @id = (attributes.fetch(:id)) ? attributes.fetch(:id) : @@total_rows += 1
   end
 

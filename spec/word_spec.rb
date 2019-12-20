@@ -11,7 +11,7 @@ describe('#Word') do
 
   describe('#save') do
     it('saves a word') do
-      word = Word.new({:word=>'word', :definitions=>nil, :id=>nil})
+      word = Word.new({:word=>'word', :id=>nil})
       word.save
       expect(Word.all).to(eq([word]))
     end
@@ -19,15 +19,15 @@ describe('#Word') do
 
   describe('#==') do
     it('considers words with matching attributes equal') do
-      word = Word.new({:word=>'word', :definitions=>nil, :id=>nil})
-      word2 = Word.new({:word=>'word', :definitions=>nil, :id=>nil})
+      word = Word.new({:word=>'word', :id=>nil})
+      word2 = Word.new({:word=>'word', :id=>nil})
       expect(word2).to(eq(word))
     end
   end
 
   describe('#update') do
     it('updates a word by id number') do
-      word = Word.new({:word=>'word', :definitions=>nil, :id=>nil})
+      word = Word.new({:word=>'word', :id=>nil})
       word.save
       word.update('new')
       expect(word.word).to(eq('new'))
@@ -36,7 +36,7 @@ describe('#Word') do
 
   describe('#delete') do
     it('deletes a word') do
-      word = Word.new({:word=>'word', :definitions=>nil, :id=>nil})
+      word = Word.new({:word=>'word', :id=>nil})
       word.save
       expect(Word.all).to(eq([word]))
       word.delete
@@ -46,7 +46,7 @@ describe('#Word') do
 
   describe('#definitions') do
     it('returns a list of all definitions for the word') do
-      word = Word.new({:word=>'word', :definitions=>nil, :id=>nil})
+      word = Word.new({:word=>'word', :id=>nil})
       word.save
       def1 = Definition.new({:text=>'text1', :word_id=>word.id, :id=>nil})
       def1.save
@@ -64,9 +64,9 @@ describe('#Word') do
 
   describe('.clear') do
     it('removes all words from the class variable @@words') do
-      word = Word.new({:word=>'word', :definitions=>nil, :id=>nil})
+      word = Word.new({:word=>'word', :id=>nil})
       word.save
-      word2 = Word.new({:word=>'word2', :definitions=>nil, :id=>nil})
+      word2 = Word.new({:word=>'word2', :id=>nil})
       word2.save
       Word.clear()
       expect(Word.all).to(eq([]))
@@ -75,7 +75,7 @@ describe('#Word') do
 
   describe('.find') do
     it('returns a word matching a given id number') do
-      word = Word.new({:word=>'word', :definitions=>nil, :id=>nil})
+      word = Word.new({:word=>'word', :id=>nil})
       word.save
       expect(Word.find(word.id)).to(eq(word))
     end
