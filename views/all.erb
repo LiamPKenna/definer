@@ -1,0 +1,27 @@
+<div class="card bg-info all">
+  <h3>Your words:</h3>
+  <div class="all-list">
+    <% if @words.any? %>
+      <% @words.each do |word| %>
+        <div class="word">
+          <a href="/words/<%= word.id %>"><h2><%= word.word%></h2></a>
+        </div>
+        <% @definitions = word.definitions%>
+        <% if @definitions.any? %>
+          <% @definitions.each do |definition| %>
+          <div class="definition">
+            <h5><%= definition.text%></h5>
+          </div>
+          <% end %>
+        <% else %>
+        <p>There are currently no definitions to display.</p>
+        <% end %>
+      <% end %>
+    <% else %>
+    <p>There are currently no words to display.</p>
+    <% end %>
+  </div>
+  <div class="card bg-secondary add-word">
+    <a href="/words/new"><h3>ADD A NEW WORD!</h3></a>
+  </div>
+</div>

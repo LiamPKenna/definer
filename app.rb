@@ -14,6 +14,11 @@ get('/words') do
   erb(:words)
 end
 
+get('/all') do
+  @words = Word.all
+  erb(:all)
+end
+
 get('/words/new') do
   erb(:new_word)
 end
