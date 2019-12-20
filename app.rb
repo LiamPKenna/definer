@@ -19,6 +19,10 @@ get('/all') do
   erb(:all)
 end
 
+get('/random') do
+  redirect to("/words/#{Word.random.id}")
+end
+
 get('/words/new') do
   erb(:new_word)
 end
