@@ -33,6 +33,16 @@ describe('#Word') do
     end
   end
 
+  describe('#delete') do
+    it('deletes a word by id number') do
+      word = Word.new({:word=>'word', :definitions=>nil, :id=>nil})
+      word.save
+      expect(Word.all).to(eq([word]))
+      word.delete(word.id)
+      expect(Word.all).to(eq([]))
+    end
+  end
+
   describe('.all') do
     it('returns an empty array before any words have been added') do
       expect(Word.all).to(eq([]))
