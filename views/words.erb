@@ -1,9 +1,17 @@
-<% if @words.any? %>
-<ul>
-  <% @words.each do |word| %>
-  <li><a href="/words/<%= word.id %>"><%= word.word%></a></li>
-  <% end %>
-</ul>
-<% else %>
-<p>There are currently no words to display.</p>
-<% end %>
+<div class="card bg-info words">
+  <h3>Available words:</h3>
+  <div class="words-list">
+    <% if @words.any? %>
+    <ul>
+      <% @words.each do |word| %>
+      <li><a href="/words/<%= word.id %>"><%= word.word%></a></li>
+      <% end %>
+    </ul>
+    <% else %>
+    <p>There are currently no words to display.</p>
+    <% end %>
+  </div>
+  <div class="card bg-secondary add-word">
+    <a href="/words/new"><h3>Click HERE to add a new word!</h3></a>
+  </div>
+</div>
