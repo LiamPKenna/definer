@@ -32,6 +32,10 @@ class Definition
     })
   end
 
+  def delete
+    @@definitions.delete(@id)
+  end
+
   def self.all
     @@definitions.values()
   end
