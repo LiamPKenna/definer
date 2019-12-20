@@ -24,6 +24,15 @@ describe('#Word') do
     end
   end
 
+  describe('#update') do
+    it('updates a word by id number') do
+      word = Word.new({:word=>'word', :definitions=>nil, :id=>nil})
+      word.save
+      word.update('new')
+      expect(word.word).to(eq('new'))
+    end
+  end
+
   describe('.all') do
     it('returns an empty array before any words have been added') do
       expect(Word.all).to(eq([]))
