@@ -1,0 +1,11 @@
+<div class="card bg-info add-word">
+  <h3>Update your definition:</h3>
+  <form action="/words/<%= @word.id %>/definitions/<%= @definition.id %>" method="post">
+  <div class="form-group">
+    <input name="_method" type="hidden" value="patch">
+    <label for="input_text">Your definition for <%= @word.word %>:</label>
+    <input id="l" name="input_text" class="form-control" type="text" placeholder="<%= @definition.text %>">
+  </div>
+  <button type="submit" class="btn btn-danger">Go!</button>
+</form>
+</div>
