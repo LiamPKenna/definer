@@ -73,3 +73,9 @@ delete('/words/:id') do
   word.delete
   redirect to('/words')
 end
+
+delete('/words/:id/definitions/:definition_id') do
+  definition = Definition.find(params[:definition_id])
+  definition.delete
+  redirect to("/words/#{params[:id]}")
+end
