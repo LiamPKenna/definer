@@ -24,6 +24,15 @@ describe('#Definition') do
     end
   end
 
+  describe('#update') do
+    it('updates a word by id number') do
+      def1 = Definition.new({:text=>'text', :word_id=>nil, :id=>nil})
+      def1.save
+      def1.update('new')
+      expect(def1.text).to(eq('new'))
+    end
+  end
+
   describe('.all') do
     it('returns an empty array before any definitions have been added') do
       expect(Definition.all).to(eq([]))
