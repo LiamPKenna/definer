@@ -8,6 +8,14 @@ describe('#Definition') do
   #
   # end
 
+  describe('#save') do
+    it('saves a definition') do
+      def1 = Definition.new({:text=>'text', :word_id=>nil, :id=>nil})
+      def1.save
+      expect(Definition.all).to(eq([def1]))
+    end
+  end
+
   describe('.all') do
     it('returns an empty array before any definitions have been added') do
       expect(Definition.all).to(eq([]))
