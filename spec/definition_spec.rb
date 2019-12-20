@@ -25,7 +25,13 @@ describe('#Definition') do
     end
   end
 
-
+  describe('.find') do
+    it('returns a definition matching a given id number') do
+      def1 = Definition.new({:text=>'text', :word_id=>nil, :id=>nil})
+      def1.save
+      expect(Definition.find(def1.id)).to(eq(def1))
+    end
+  end
   # describe('#') do
   #   it('') do
   #     expect().to(eq())
