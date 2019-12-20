@@ -9,10 +9,6 @@ class Word
     @id = (attributes.fetch(:id)) ? attributes.fetch(:id) : @@total_rows += 1
   end
 
-  def self.all
-    @@words.values()
-  end
-
   def save
     @@words[self.id] = Word.new({
       :word=>self.word,
@@ -23,6 +19,14 @@ class Word
 
   def ==(word_to_compare)
     self.word() == word_to_compare.word()
+  end
+
+  def update(new_word)
+    @word = new_word
+  end
+
+  def self.all
+    @@words.values()
   end
 
   def self.clear
