@@ -4,8 +4,15 @@ require('./lib/word')
 require('./lib/definition')
 require('pry')
 also_reload('lib/**/*.rb')
+
 get('/') do
+  erb(:welcome)
 end
+
+get('/words') do
+  erb(:words)
+end
+
 post('/') do
 end
 patch('/') do
