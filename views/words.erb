@@ -2,11 +2,18 @@
   <h3>Available words:</h3>
   <div class="words-list">
     <% if @words.any? %>
-    <ul>
       <% @words.each do |word| %>
-      <li><a href="/words/<%= word.id %>"><%= word.word%></a></li>
+        <div class="word">
+          <a href="/words/<%= word.id %>"><h2><%= word.word%></h2></a>
+        </div>
+        <form action="/words/<%= word.id %>/update" method="get">
+          <button type="submit" class="btn word-btn">UPDATE</button>
+        </form>
+        <form action="/words/<%= word.id %>" method="post">
+          <input name="_method" type="hidden" value="delete">
+          <button type="submit" class="btn word-btn">DELETE</button>
+        </form>
       <% end %>
-    </ul>
     <% else %>
     <p>There are currently no words to display.</p>
     <% end %>
