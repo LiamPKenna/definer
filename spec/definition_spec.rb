@@ -16,6 +16,14 @@ describe('#Definition') do
     end
   end
 
+  describe('#==') do
+    it('considers definitions with matching text to be equal') do
+      def1 = Definition.new({:text=>'text', :word_id=>nil, :id=>nil})
+      def2 = Definition.new({:text=>'text', :word_id=>nil, :id=>nil})
+      expect(def1).to(eq(def2))
+    end
+  end
+
   describe('.all') do
     it('returns an empty array before any definitions have been added') do
       expect(Definition.all).to(eq([]))
