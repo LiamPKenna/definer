@@ -1,0 +1,11 @@
+<div class="card bg-info add-word">
+  <h3>Update your word:</h3>
+  <form action="/words/<%= @word.id %>" method="post">
+  <div class="form-group">
+    <input name="_method" type="hidden" value="patch">
+    <label for="input_word">Your word:</label>
+    <input id="l" name="input_word" class="form-control" type="text" placeholder="<%= @word.word %>">
+  </div>
+  <button type="submit" class="btn btn-danger">Go!</button>
+</form>
+</div>
