@@ -36,6 +36,10 @@ class Definition
     @@definitions.delete(@id)
   end
 
+  def word
+    Word.find(@word_id)
+  end
+
   def self.all
     @@definitions.values()
   end
