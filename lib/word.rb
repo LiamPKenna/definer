@@ -1,3 +1,5 @@
+require('./lib/definition')
+
 class Word
   attr_reader :word, :id, :definitions
   @@words = {}
@@ -27,6 +29,10 @@ class Word
 
   def delete
     @@words.delete(@id)
+  end
+
+  def definitions
+    Definition.find_by_word(@id)
   end
 
   def self.all
