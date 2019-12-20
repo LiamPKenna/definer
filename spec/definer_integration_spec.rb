@@ -70,17 +70,21 @@ describe('delete a definition', {:type => :feature}) do
   end
 end
 
-# describe('update a word', {:type => :feature}) do
-#   it('should allow for users to update added words') do
-#     visit('/words')
-#     click_on('ADD A NEW WORD!')
-#     fill_in('input_word', :with => 'UptateMe')
-#     click_on('Go!')
-#     expect(page).to have_content('UptateMe')
-#     page.find('button', id: 'updateUptateMe').click
-#     fill_in('input_word', :with => 'IwasUpdated')
-#     click_on('Go!')
-#     expect(page).to have_content('IwasUpdated')
-#     expect(page).to have_no_content('UptateMe')
-#   end
-# end
+describe('delete a definition', {:type => :feature}) do
+  it('should allow for users to delete added words') do
+    visit('/words')
+    click_on('ADD A NEW WORD!')
+    fill_in('input_word', :with => 'DefUpdateWord')
+    click_on('Go!')
+    click_on('DefUpdateWord')
+    click_on('ADD A NEW DEFINITION!')
+    fill_in('input_definition', :with => 'Test definition')
+    click_on('Go!')
+    expect(page).to have_content('Test definition')
+    click_on('UPDATE')
+    fill_in('input_text', :with => 'IwasUpdated')
+    click_on('Go!')
+    expect(page).to have_no_content('Test definition')
+    expect(page).to have_content('IwasUpdated')
+  end
+end
