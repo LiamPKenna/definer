@@ -24,6 +24,7 @@ class Word
 
   def update(new_word)
     @word = new_word
+    save()
   end
 
   def delete
