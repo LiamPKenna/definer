@@ -33,6 +33,16 @@ describe('#Definition') do
     end
   end
 
+  describe('#delete') do
+    it('deletes a word') do
+      def1 = Definition.new({:text=>'text', :word_id=>nil, :id=>nil})
+      def1.save
+      expect(Definition.all).to(eq([def1]))
+      def1.delete
+      expect(Definition.all).to(eq([]))
+    end
+  end
+
   describe('.all') do
     it('returns an empty array before any definitions have been added') do
       expect(Definition.all).to(eq([]))
