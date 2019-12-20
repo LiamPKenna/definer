@@ -6,6 +6,19 @@ body {
  text-align: center;
 }
 
+.main {
+ margin-top: 10%;
+}
+
+.bg-info {
+  padding: 30px;
+}
+
+.bg-secondary {
+  margin-top: 40px;
+  text-align: center;
+}
+
 .words-list,
 .definition-list {
   display: grid;
@@ -15,8 +28,9 @@ body {
 .word,
 .definition {
   width: 100%;
-  background-color: gray;
+  background-color: lightgray;
   padding: 10px;
+  border: 3px solid black;
 }
 
 .word-btn {
