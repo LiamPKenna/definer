@@ -6,6 +6,7 @@ describe('#Definition') do
 
   before(:each) do
     Definition.clear()
+    Word.clear()
   end
 
   describe('#save') do

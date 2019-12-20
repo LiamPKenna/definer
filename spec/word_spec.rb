@@ -43,6 +43,18 @@ describe('#Word') do
     end
   end
 
+  describe('#definitions') do
+    it('returns a list of all definitions for the word') do
+      word = Word.new({:word=>'word', :definitions=>nil, :id=>nil})
+      word.save
+      def1 = Definition.new({:text=>'text1', :word_id=>word.id, :id=>nil})
+      def1.save
+      def2 = Definition.new({:text=>'text2', :word_id=>word.id, :id=>nil})
+      def2.save
+      expect(word.definitions).to(eq([def1,def2]))
+    end
+  end
+
   describe('.all') do
     it('returns an empty array before any words have been added') do
       expect(Word.all).to(eq([]))
