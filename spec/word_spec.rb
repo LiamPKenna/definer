@@ -21,4 +21,12 @@ describe('#Word') do
     end
   end
 
+  describe('#==') do
+    it('words with matching attributes are considered equal') do
+      word = Word.new({:word=>'word', :definition=>nil, :id=>nil})
+      word2 = Word.new({:word=>'word', :definition=>nil, :id=>nil})
+      expect(word2).to(eq(word))
+    end
+  end
+
 end
