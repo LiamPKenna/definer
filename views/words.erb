@@ -7,11 +7,11 @@
           <a href="/words/<%= word.id %>"><h2><%= word.word%></h2></a>
         </div>
         <form action="/words/<%= word.id %>/update" method="get">
-          <button type="submit" class="btn word-btn">UPDATE</button>
+          <button type="submit" class="btn word-btn" id="update<%= word.word%>">UPDATE</button>
         </form>
         <form action="/words/<%= word.id %>" method="post">
           <input name="_method" type="hidden" value="delete">
-          <button type="submit" class="btn word-btn">DELETE</button>
+          <button type="submit" class="btn word-btn" id="delete<%= word.word%>">DELETE</button>
         </form>
       <% end %>
     <% else %>
@@ -19,6 +19,6 @@
     <% end %>
   </div>
   <div class="card bg-secondary add-word">
-    <a href="/words/new"><h3>Click HERE to add a new word!</h3></a>
+    <a href="/words/new"><h3>ADD A NEW WORD!</h3></a>
   </div>
 </div>

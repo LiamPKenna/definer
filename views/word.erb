@@ -2,16 +2,26 @@
   <h3>Definitions for <%= @word.word %>:</h3>
   <div class="definition-list">
     <% if @definitions.any? %>
-    <ul>
       <% @definitions.each do |definition| %>
-      <li><a href="/words/<%= @word.id %>/definitions/<%= definition.id %>"><%= definition.text%></a></li>
+      <div class="definition">
+        <a href="/words/<%= @word.id %>/definitions/<%= definition.id %>"><h5><%= definition.text%></h5></a>
+      </div>
+      <form action="/words/<%= @word.id %>/definitions/<%= definition.id %>/update" method="get">
+        <button type="submit" class="btn word-btn">UPDATE</button>
+      </form>
+      <form action="/words/<%= @word.id %>/definitions/<%= definition.id %>" method="post">
+        <input name="_method" type="hidden" value="delete">
+        <button type="submit" class="btn word-btn">DELETE</button>
+      </form>
       <% end %>
-    </ul>
     <% else %>
     <p>There are currently no definitions to display.</p>
     <% end %>
   </div>
   <div class="card bg-secondary add-word">
     <a href="/words/<%= @word.id %>/definitions/new"><h3>Click HERE to add a new definition!</h3></a>
+  </div>
+  <div class="card bg-secondary add-word">
+    <a href="/words"><h3>Click HERE to go back to all the words!</h3></a>
   </div>
 </div>
