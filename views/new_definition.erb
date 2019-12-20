@@ -1,0 +1,10 @@
+<div class="card bg-info add-word">
+  <h3>Enter your new definition for <%= @word.word %>:</h3>
+  <form action="/words/<%= @word.id %>/definitions" method="post">
+  <div class="form-group">
+    <label for="input_definition">Your definition:</label>
+    <input id="l" name="input_definition" class="form-control" type="text">
+  </div>
+  <button type="submit" class="btn btn-danger">Go!</button>
+</form>
+</div>
