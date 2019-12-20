@@ -10,6 +10,7 @@ get('/') do
 end
 
 get('/words') do
+  @words = Word.all
   erb(:words)
 end
 
