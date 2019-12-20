@@ -19,6 +19,10 @@ class Definition
     })
   end
 
+  def ==(definition_to_compare)
+    self.text() == definition_to_compare.text()
+  end
+
   def self.all
     @@definitions.values()
   end
