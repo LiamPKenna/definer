@@ -24,6 +24,11 @@ get('/words/:id') do
   erb(:word)
 end
 
+get('/words/:id/update') do
+  @word = Word.find(params[:id])
+  erb(:update_word)
+end
+
 get('/words/:id/definitions/new') do
   @word = Word.find(params[:id])
   erb(:new_definition)
@@ -38,15 +43,21 @@ end
 post('/words/:word_id/definitions') do
   definition = Definition.new({
     :text=>params[:input_definition],
-    :word_id=>params[:word_id],
+    :word_id=>params[:word_id].to_i,
     :id=>nil
   })
   definition.save
   redirect to("/words/#{params[:word_id]}")
 end
 
-patch('/') do
+patch('/words/:id') do
+  @word = Word.find(params[:id])
+  @word.update(params[:input_word])
+  redirect to('/words')
 end
 
-delete('/') do
+delete('/words/:id') do
+  word = Word.find(params[:id])
+  word.delete
+  redirect to('/words')
 end
