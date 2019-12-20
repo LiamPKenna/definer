@@ -55,7 +55,7 @@ describe('add a new definition', {:type => :feature}) do
 end
 
 describe('delete a definition', {:type => :feature}) do
-  it('should allow for users to delete added words') do
+  it('should allow for users to delete added definitions') do
     visit('/words')
     click_on('ADD A NEW WORD!')
     fill_in('input_word', :with => 'DefDelWord')
@@ -70,8 +70,8 @@ describe('delete a definition', {:type => :feature}) do
   end
 end
 
-describe('delete a definition', {:type => :feature}) do
-  it('should allow for users to delete added words') do
+describe('update a definition', {:type => :feature}) do
+  it('should allow for users to update added definitions') do
     visit('/words')
     click_on('ADD A NEW WORD!')
     fill_in('input_word', :with => 'DefUpdateWord')
