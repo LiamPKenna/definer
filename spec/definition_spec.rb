@@ -44,6 +44,16 @@ describe('#Definition') do
     end
   end
 
+  describe('#word') do
+    it('finds the word for which it is a definition') do
+      word = Word.new({:word=>'word', :definitions=>nil, :id=>nil})
+      word.save
+      def1 = Definition.new({:text=>'text1', :word_id=>word.id, :id=>nil})
+      def1.save
+      expect(def1.word).to(eq(word))
+    end
+  end
+
   describe('.all') do
     it('returns an empty array before any definitions have been added') do
       expect(Definition.all).to(eq([]))
