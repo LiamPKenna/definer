@@ -67,10 +67,15 @@ describe('#Definition') do
       expect(Definition.find(def1.id)).to(eq(def1))
     end
   end
-  # describe('#') do
-  #   it('') do
-  #     expect().to(eq())
-  #   end
-  # end
+
+  describe('.find_by_word') do
+    it('returns all definitions matching a given word_id number') do
+      word = Word.new({:word=>'word', :definitions=>nil, :id=>nil})
+      word.save
+      def1 = Definition.new({:text=>'text', :word_id=>word.id, :id=>nil})
+      def1.save
+      expect(Definition.find_by_word(word.id)).to(eq(def1))
+    end
+  end
 
 end
