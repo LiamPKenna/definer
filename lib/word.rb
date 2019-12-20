@@ -48,4 +48,9 @@ class Word
     @@words[id.to_i]
   end
 
+  def self.random
+    words = @@words.values()
+    words[rand(words.length)]
+  end
+
 end
