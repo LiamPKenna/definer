@@ -1,11 +1,11 @@
 class Word
-  attr_reader :word, :id, :definition
+  attr_reader :word, :id, :definitions
   @@words = {}
   @@total_rows = 0
 
   def initialize(attributes)
     @word = attributes.fetch(:word)
-    @definition = attributes.fetch(:definition)
+    @definition = attributes.fetch(:definitions)
     @id = (attributes.fetch(:id)) ? attributes.fetch(:id) : @@total_rows += 1
   end
 
@@ -16,7 +16,7 @@ class Word
   def save
     @@words[self.id] = Word.new({
       :word=>self.word,
-      :definition=>self.definition,
+      :definitions=>self.definitions,
       :id=>self.id
     })
   end
@@ -28,6 +28,10 @@ class Word
   def self.clear
     @@words = {}
     @@total_rows = 0
+  end
+
+  def self.find(id)
+    @@words[id.to_i]
   end
 
 end
