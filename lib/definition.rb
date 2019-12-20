@@ -23,6 +23,15 @@ class Definition
     self.text() == definition_to_compare.text()
   end
 
+  def update(new_text)
+    @text = new_text
+    @@definitions[self.id] = Definition.new({
+      :text=>self.text,
+      :word_id=>self.word_id,
+      :id=>self.id
+    })
+  end
+
   def self.all
     @@definitions.values()
   end
