@@ -74,7 +74,7 @@ describe('#Definition') do
       word.save
       def1 = Definition.new({:text=>'text', :word_id=>word.id, :id=>nil})
       def1.save
-      expect(Definition.find_by_word(word.id)).to(eq(def1))
+      expect(Definition.find_by_word(word.id)).to(eq([def1]))
     end
   end
 

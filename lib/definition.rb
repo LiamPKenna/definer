@@ -48,4 +48,14 @@ class Definition
   def self.find(id)
     @@definitions[id.to_i]
   end
+
+  def self.find_by_word(word_id)
+    definitions = []
+    @@definitions.values.each do |definition|
+      if definition.word_id == word_id.to_i
+        definitions.push(definition)
+      end
+    end
+    definitions
+  end
 end
