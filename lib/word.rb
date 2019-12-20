@@ -25,6 +25,10 @@ class Word
     @word = new_word
   end
 
+  def delete
+    @@words.delete(@id)
+  end
+
   def self.all
     @@words.values()
   end
