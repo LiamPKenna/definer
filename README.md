@@ -21,7 +21,7 @@ _This site is a simple web application for children that allows for users to inp
 * _In project root folder:_
   * _$ bundle install_
   * _$ ruby app.rb_
-* _This site can be viewed in it's current form at_
+* _This site can be viewed in it's current form at https://agile-sea-88531.herokuapp.com/_
 
 
 _To explore the source code, feel free to browse on github or clone to your local machine_
